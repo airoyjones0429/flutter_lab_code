@@ -18,11 +18,6 @@ class People {
   final String? name;
   final String? kind;
   final String? job;
-
-  ///類別自己的建構函數
-  ///算是類別對外的介面
-  ///類別只是藍圖
-  ///還不是實體
   People({
     this.name,
     this.kind,
@@ -59,8 +54,7 @@ class _MyAppState extends State<MyApp> {
     void onNextPress({int? index}) {
       if (index != null) {
         if (myList.length == (index! + 1)) {
-          //如果是最後一頁
-          int i; //動態取出每次的最後一頁KEY 的整數值
+          int i;
           for (i = 0; i < myList.length; i++) {
             if (ValueKey<int>(i) == ValueKey<int>(myList.length)) {
               break;
@@ -101,12 +95,27 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: Colors.black,
         body: Center(
-          child: PageView(
-            scrollDirection: Axis.horizontal,
-            controller: pageController,
-            children: myList,
-          ),
-        ),
+            // ignore: dead_code
+            child: (false)
+                // ignore: dead_code
+                ? Text('簡單測試')
+                : (false)
+                    // ignore: dead_code
+                    ? Mytitle()
+                    : (false)
+                        // ignore: dead_code
+                        ? Mytitle2(height: 400, width: 400)
+                        : (false)
+                            // ignore: dead_code
+                            ? Mytitle3(
+                                height: 400,
+                                width: 400,
+                              )
+                            : PageView(
+                                scrollDirection: Axis.horizontal,
+                                controller: pageController,
+                                children: myList,
+                              )),
       ),
     );
   }
